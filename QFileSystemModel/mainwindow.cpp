@@ -29,6 +29,7 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
     ui->chkIsDir->setChecked(model->isDir(index));
     ui->LabPath->setText(model->filePath(index));
+    ui->LabPath->adjustSize();
     int sz=model->size(index)/1024;
     if(sz<1024)
     {
@@ -37,4 +38,5 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
     else {
        ui->LabFileSize->setText(QString::asprintf("%.1f MB",sz/1024.0));
     }
+    ui->LabFileSize->adjustSize();
 }
